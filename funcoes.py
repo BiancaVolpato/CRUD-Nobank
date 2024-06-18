@@ -48,57 +48,58 @@ def cadastrar_dados():
 
 
 #Função listar dados
-def listar_dados():
-    # Tentativa ler e listar dados
+def listar_dados ():
+
+    #Tentativa ler e listar dados
     try:
-        # Abrir Dados_Clientes
-        with open('dados_clientes.txt', 'r') as arquivo:
+
+        #Abrir Dados_Clientes
+        with open ('dados_clientes.txt','r') as arquivo:
             linhas = arquivo.readlines()
 
-            # Verificar se há dados no arquivo
+            #Verificar se há dados no arqiuvo
             if not linhas:
                 print("Nenhum dado de cliente cadastrado")
-            else:
-                print("-" * 30)
-                print("Dados cadastrados:")
 
-                # Repetir sobre cada linha do arquivo
+            #Exibir um cabeçalho com os dados
+            else:
+                print("-"*30)
+                print("Dados cadastrados: ")
+                
+                #repetir sobre cada linha do arquivo
                 for linha in linhas:
-                    # Dividir linhas por ponto e vírgula e remover os espaços em branco
+                    #Dividir linhas por vírgulas e remover os espaços em branco
                     dados = linha.strip().split(';')
 
-
-                    # Extrair os valores de cada dado
+                    #Extrair os valores de cada dado
                     nome_cliente = dados[0]
                     cpf = dados[1]
-                    dataNasc = dados[2]
-                    endereco = dados[3]
-                    cep = dados[4]
-                    cidade = dados[5]
-                    estado = dados[6]
-                    telefone = dados[7]
-                    obs = dados[8]
+                    dataNasc = dados [2]
+                    endereco = dados [3]
+                    cep = dados [4]
+                    cidade = dados [5]
+                    estado = dados [6]
+                    telefone = dados [7]
+                    obs = dados [8]
 
-                    # Exibir os dados do cliente
-                    print(f"Nome: {nome_cliente}")
-                    print(f"CPF: {cpf}")
-                    print(f"Data de Nascimento: {dataNasc}")
-                    print(f"Endereço: {endereco}")
-                    print(f"CEP: {cep}")
-                    print(f"Cidade: {cidade}")
-                    print(f"Estado: {estado}")
-                    print(f"Telefone: {telefone}")
-                    print(f"Observações: {obs}")
-                    print("-" * 30)
-                else:
-                    print("Dados incompletos ou formato incorreto na linha: ", linha)
-
-                print("Dados atualizados com sucesso!")
+                    #Exibir os dados dos clientes na tela
+                    print("Nome: ", nome_cliente)
+                    print("CPF: ", cpf)
+                    print("Data de Nascimento: ", dataNasc)
+                    print("Endereço: ", endereco)
+                    print("CEP: ", cep)
+                    print("Cidade: ", cidade)
+                    print("Estado: ", estado)
+                    print("Telefone: ", telefone)
+                    print("obs: ", obs)
+                    print("-"*30)
 
     except FileNotFoundError:
-        # Capturar erros caso o Arquivo não seja encontrado
+        #Capturar erros caso o arquivo não seja encontrado
         print("Arquivo de dados não encontrado")
-
+    except Exception as e:
+        #Capturar erros durante o listar dados
+        print("Ocorreu um erros ao listar os dados:", str(e))
 
 
 #fazer a função de alterar dados
@@ -188,7 +189,7 @@ def alterar_dados():
     except FileNotFoundError:
         #Capturar erros caso o Arquivo não seja encontrado
         print("Arquivo de dados não encontrado")
-
+   
 
 
 #Função Deletar Dado
