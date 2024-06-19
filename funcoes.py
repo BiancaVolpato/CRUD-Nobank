@@ -45,7 +45,8 @@ def cadastrar_dados():
     except ValueError: 
         #Capturar erros caso valores fora do formato esperado sejam inseridos
         print("Valor inválido")
-
+    except Exception as e:
+        print("Dados não cadastrados", str(e))
 
 #Função listar dados
 def listar_dados ():
@@ -99,7 +100,7 @@ def listar_dados ():
         print("Arquivo de dados não encontrado")
     except Exception as e:
         #Capturar erros durante o listar dados
-        print("Ocorreu um erros ao listar os dados:", str(e))
+        print("Ocorreu um erro ao listar os dados:", str(e))
 
 
 #fazer a função de alterar dados
@@ -189,6 +190,8 @@ def alterar_dados():
     except FileNotFoundError:
         #Capturar erros caso o Arquivo não seja encontrado
         print("Arquivo de dados não encontrado")
+    except Exception as e:
+        print("Houve um erro ao alterar o dado",str(e))
    
 
 
@@ -241,7 +244,8 @@ def deletar_dado():
     except FileNotFoundError:
         #Capturar erros caso o arquivo não seja encontrado
         print("Arquivo de dados não encontrado")
-
+    except Exception as e:
+        print("Houve um erro ao deletar o dado", str(e))
 
 
 #Função Backup
@@ -265,6 +269,8 @@ def backup_dados():
     except FileNotFoundError:
         print("Arquivo de origem não encontrado")
      #Exceção de erro backup não realizado
+    except Exception as e:
+        print("Houve um erro ao fazer o backup")
 
 
 #Exibir MENU
@@ -284,6 +290,8 @@ def exibir_menu():
 def main():
     #Executa um loop infinito até que encontre a instrução 'break'
     while True:
+        #exibe o cabeçalho
+        cabacalho()
         #Exibe o menu
         exibir_menu()
         #Pedir ao usuario que digite o numero da opção desejada
