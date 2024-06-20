@@ -1,6 +1,7 @@
 
+
 #função que mostra cabeçalho
-def cabacalho():
+def cabecalho():
     print('-'*36)
     print('----------FACULDADE CESUSC----------')
     print('NOME: Bianca Volpato')
@@ -23,18 +24,18 @@ def cadastrar_dados():
 
             #solicitar informações do cliente
             nome = input("Nome: ")
-            cpf = input("CPF: ")
+            cpf = int(input("CPF: "))
             dataNasc = input("Data de Nascimento: ")
             endereco = input("Endereço: ")
-            cep = input("CEP: ")
+            cep = int(input("CEP: "))
             cidade = input("Cidade: ")
             estado = input("estado: ")
-            telefone = input("telefone: ")
+            telefone = (input("telefone: "))
             obs = input("Observações: ")
             print("-"*36)
 
             #Formatar os dados do cliente
-            cliente = f"{nome},{cpf},{dataNasc},{endereco}, {cep}, {cidade}, {estado}, {telefone}, {obs}, \n"
+            cliente = f"{nome};{cpf};{dataNasc};{endereco};{cep};{cidade};{estado};{telefone};{obs}, \n"
 
             #Escrever os dados no arquivo
             arquivo.write(cliente)
@@ -151,6 +152,8 @@ def alterar_dados():
                     #Obter novos dados
                     novos_dados = {}
                     novos_dados['nome_cliente'] = input("Digite o novo nome do cliente: ")
+                    novos_dados['cpf_cliente'] = cpf
+                    novos_dados['data_nascimento'] = input("Digite a nova data de nascimento")
                     novos_dados['endereco'] = input ("Digite o novo endereço do cliente: ")
                     novos_dados['cep'] = input("Digite o novo CEP do cliente: ")
                     novos_dados['cidade'] = input("Digite a nova cidade do cliente: ")
@@ -161,6 +164,8 @@ def alterar_dados():
 
                     # Atualizar os dados do cliente
                     dados[0] = novos_dados['nome_cliente']
+                    dados[1] = novos_dados['cpf_cliente']
+                    dados[2] = novos_dados['data_nascimento']
                     dados[3] = novos_dados['endereco']
                     dados[4] = novos_dados['cep']
                     dados[5] = novos_dados['cidade']
@@ -290,8 +295,6 @@ def exibir_menu():
 def main():
     #Executa um loop infinito até que encontre a instrução 'break'
     while True:
-        #exibe o cabeçalho
-        cabacalho()
         #Exibe o menu
         exibir_menu()
         #Pedir ao usuario que digite o numero da opção desejada
