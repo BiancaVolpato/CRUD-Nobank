@@ -35,12 +35,13 @@ def cadastrar_dados():
             print("-"*36)
 
             #Formatar os dados do cliente
+            #variavel tipo lista
             cliente = f"{nome};{cpf};{dataNasc};{endereco};{cep};{cidade};{estado};{telefone};{obs}, \n"
 
-            #Escrever os dados no arquivo
+            #onde os dados sao gravados no arquivo
             arquivo.write(cliente)
 
-            #Exibir mensagem de conclusão
+            #Exibi mensagem de conclusão
             print("Dados do cliente cadastrados com sucesso!")
 
     except ValueError: 
@@ -152,8 +153,8 @@ def alterar_dados():
                     #Obter novos dados
                     novos_dados = {}
                     novos_dados['nome_cliente'] = input("Digite o novo nome do cliente: ")
-                    novos_dados['cpf_cliente'] = cpf
-                    novos_dados['data_nascimento'] = input("Digite a nova data de nascimento")
+                    novos_dados['cpf_cliente'] = input("Digite o novo cpf do cliente: ")
+                    novos_dados['data_nascimento'] = input("Digite a nova data de nascimento do cliente: ")
                     novos_dados['endereco'] = input ("Digite o novo endereço do cliente: ")
                     novos_dados['cep'] = input("Digite o novo CEP do cliente: ")
                     novos_dados['cidade'] = input("Digite a nova cidade do cliente: ")
