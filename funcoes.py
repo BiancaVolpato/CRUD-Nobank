@@ -30,7 +30,7 @@ def cadastrar_dados():
             cep = int(input("CEP: "))
             cidade = input("Cidade: ")
             estado = input("estado: ")
-            telefone = (input("telefone: "))
+            telefone = int(input("telefone: "))
             obs = input("Observações: ")
             print("-"*36)
 
