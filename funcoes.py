@@ -1,5 +1,3 @@
-
-
 #função que mostra cabeçalho
 def cabecalho():
     print('-'*36)
@@ -30,18 +28,17 @@ def cadastrar_dados():
             cep = int(input("CEP: "))
             cidade = input("Cidade: ")
             estado = input("estado: ")
-            telefone = int(input("telefone: "))
+            telefone = (input("telefone: "))
             obs = input("Observações: ")
             print("-"*36)
 
             #Formatar os dados do cliente
-            #variavel tipo lista
             cliente = f"{nome};{cpf};{dataNasc};{endereco};{cep};{cidade};{estado};{telefone};{obs}, \n"
 
-            #onde os dados sao gravados no arquivo
+            #Escrever os dados no arquivo
             arquivo.write(cliente)
 
-            #Exibi mensagem de conclusão
+            #Exibir mensagem de conclusão
             print("Dados do cliente cadastrados com sucesso!")
 
     except ValueError: 
@@ -125,9 +122,9 @@ def alterar_dados():
             #ler as linhas do arquivo
             linhas =  arquivo.readlines()
             
-            #Repetir sobre cada linha do arquivo
+            #Cada linha do arquivo é lida e separada em uma lista de dados 
             for linha in linhas:
-                #Separa os dados da linha em uma lista usando a virgula como separador
+
                 dados = linha.strip().split(';')
                 #Armazena o cpf do cliente
                 cpf_cliente = dados[1]
@@ -153,8 +150,8 @@ def alterar_dados():
                     #Obter novos dados
                     novos_dados = {}
                     novos_dados['nome_cliente'] = input("Digite o novo nome do cliente: ")
-                    novos_dados['cpf_cliente'] = input("Digite o novo cpf do cliente: ")
-                    novos_dados['data_nascimento'] = input("Digite a nova data de nascimento do cliente: ")
+                    novos_dados['cpf_cliente'] = cpf
+                    novos_dados['data_nascimento'] = input("Digite a nova data de nascimento")
                     novos_dados['endereco'] = input ("Digite o novo endereço do cliente: ")
                     novos_dados['cep'] = input("Digite o novo CEP do cliente: ")
                     novos_dados['cidade'] = input("Digite a nova cidade do cliente: ")
@@ -174,8 +171,7 @@ def alterar_dados():
                     dados[7] = novos_dados['telefone']
                     dados[8] = novos_dados['obs']
 
-                #Converte a lista de dados de volta para uma string separada por vírgulas
-                #converte a lista de dados de um cliente de volta em uma string formatada para ser escrita no arquivo.
+                #Os dados atualizados do cliente são convertidos de volta para uma string e adicionados à lista
                 linha_atualizada = ','.join(dados) + '\n'
                 #Adiciona a linha atualizada à lista de dados atualizados
 
@@ -327,4 +323,4 @@ def main():
         
         else: 
             #Se nenhuma opção valida for selecionada, mostre uma mensagem de erro
-            print("Opção inválida.Por favor, escolha uma opção válida")
+            print("Opção inválida. Por favor, escolha uma opção válida")
