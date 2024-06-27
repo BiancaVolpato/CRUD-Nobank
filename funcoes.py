@@ -172,7 +172,7 @@ def alterar_dados():
                     dados[8] = novos_dados['obs']
 
                 #Os dados atualizados do cliente são convertidos de volta para uma string e adicionados à lista
-                linha_atualizada = ','.join(dados) + '\n'
+                linha_atualizada = ';'.join(dados) + '\n'
                 #Adiciona a linha atualizada à lista de dados atualizados
 
                 dados_atualizados.append(linha_atualizada)
